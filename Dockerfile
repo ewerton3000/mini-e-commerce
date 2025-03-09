@@ -11,4 +11,4 @@ RUN npm install --quiet --no-optional --no-fund --loglevel=error
 RUN npm run build
 
 CMD ["npm", "run", "start:dev"]
-EXPOSE 3000
+EXPOSE 4000
