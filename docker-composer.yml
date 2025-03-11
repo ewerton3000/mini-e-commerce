@@ -6,13 +6,26 @@ services:
       - SYS_NICE
     restart: always
     environment:
-      - MYSQL_DATABASE="mini-e-commerce" 
-      - MYSQL_ROOT_PASSWORD=bank5898@
+      - MYSQL_DATABASE=mini-e-commerce
+      - MYSQL_ROOT_PASSWORD=bkyDGvkQCNncgPAPLVhLoZnuvtHsibZx
     ports:
       - '3306:3306'
     volumes:
       - db:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"  # ou qualquer outra porta que sua aplicação use
+    environment:
+      - DB_HOST=db  # O nome do serviço MySQL definido no Compose
+      - DB_USER=root
+      - DB_PASSWORD=bank5898@
+      - DB_NAME=mini-e-commerce
+    depends_on:
+      - db
+
 volumes:
   db:
     driver: local

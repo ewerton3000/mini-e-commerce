@@ -1,5 +1,5 @@
 const dataSource = 'DATA_SOURCE',
-      dbPort = 3306,
+      dbPort = 35340,
       user = 'root'
       export let utilDB = {
         dataSource,
