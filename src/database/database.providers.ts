@@ -6,11 +6,11 @@ export const databaseProviders = [
         useFactory: async() =>{
             const dataSource = new DataSource({
                 type: 'mysql',
-                host: 'maglev.proxy.rlwy.net', 
+                host: process.env.host, 
                 port: utilDB.dbPort,
-                username:'root',
-                password:'lMNxuaNEbkMcaSotVmkycSrFBWBSBJxe',
-                database:'mini-e-commerce',
+                username:process.env.user,
+                password:process.env.password,
+                database:process.env.database,
                 entities:[__dirname + '/../**/*.entity{.ts,.js}'],
                 synchronize: true,
 
